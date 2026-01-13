@@ -1,17 +1,18 @@
 package org.raflab.studsluzba.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.List;
 
-// Ovo je klasa koja "glumi" Page objekat sa servera
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RestPage<T> {
     private List<T> content;
-    private int number;      // Trenutna stranica (0, 1, 2...)
-    private int totalPages;  // Ukupno stranica
-    private long totalElements; // Ukupno elemenata
+    private int number;
+    private int totalPages;
+    private long totalElements;
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
     public RestPage(@JsonProperty("content") List<T> content,
@@ -31,8 +32,35 @@ public class RestPage<T> {
         this.totalElements = totalElements;
     }
 
-    public List<T> getContent() { return content; }
-    public int getNumber() { return number; }
-    public int getTotalPages() { return totalPages; }
-    public long getTotalElements() { return totalElements; }
+    public List<T> getContent() {
+        return content;
+    }
+
+    public void setContent(List<T> content) {
+        this.content = content;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getTotalPages() {
+        return totalPages;
+    }
+
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
+    }
+
+    public long getTotalElements() {
+        return totalElements;
+    }
+
+    public void setTotalElements(long totalElements) {
+        this.totalElements = totalElements;
+    }
 }
