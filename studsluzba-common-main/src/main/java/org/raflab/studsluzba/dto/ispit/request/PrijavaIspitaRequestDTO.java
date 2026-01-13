@@ -1,8 +1,17 @@
 package org.raflab.studsluzba.dto.ispit.request;
 
 public class PrijavaIspitaRequestDTO {
+
     private Long studentIndeksId;
     private Long ispitId;
+
+    public PrijavaIspitaRequestDTO() {
+    }
+
+    public PrijavaIspitaRequestDTO(Long studentIndeksId, Long ispitId) {
+        this.studentIndeksId = studentIndeksId;
+        this.ispitId = ispitId;
+    }
 
     public Long getStudentIndeksId() {
         return studentIndeksId;
