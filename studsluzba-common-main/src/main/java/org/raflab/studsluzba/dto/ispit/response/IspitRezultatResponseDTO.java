@@ -64,4 +64,20 @@ public class IspitRezultatResponseDTO {
     public void setPolozio(boolean polozio) {
         this.polozio = polozio;
     }
+
+    public void preracunajSve() {
+        double predispitni = (poeniPredispitne != null) ? poeniPredispitne : 0.0;
+        double ispit = (poeniIspit != null) ? poeniIspit : 0.0;
+
+        this.ukupnoPoena = predispitni + ispit;
+
+        if (this.ukupnoPoena >= 91) this.ocena = 10;
+        else if (this.ukupnoPoena >= 81) this.ocena = 9;
+        else if (this.ukupnoPoena >= 71) this.ocena = 8;
+        else if (this.ukupnoPoena >= 61) this.ocena = 7;
+        else if (this.ukupnoPoena >= 51) this.ocena = 6;
+        else this.ocena = 5;
+
+        this.polozio = (this.ocena > 5);
+    }
 }
