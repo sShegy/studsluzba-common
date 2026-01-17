@@ -8,14 +8,30 @@ public class CreatePredmetRequestDTO {
     private Integer semestar;
     private boolean obavezan;
     private Long studijskiProgramId;
+    private Integer fondPredavanja;
+    private Integer fondVezbe;
 
-    public CreatePredmetRequestDTO(Long studijskiProgramId, String sifra, String naziv, Integer espb, Integer semestar) {
-        this.studijskiProgramId = studijskiProgramId;
+
+//    public CreatePredmetRequestDTO(Long studijskiProgramId, String sifra, String naziv, Integer espb, Integer semestar) {
+//        this.studijskiProgramId = studijskiProgramId;
+//        this.sifra = sifra;
+//        this.naziv = naziv;
+//        this.espb = espb;
+//        this.semestar = semestar;
+//    }
+
+    public CreatePredmetRequestDTO(Long studijskiProgramId, String sifra, String naziv, Integer espb, Integer semestar, Integer fondPredavanja, Integer fondVezbe, String opis, boolean obavezan) {
         this.sifra = sifra;
         this.naziv = naziv;
+        this.opis = opis;
         this.espb = espb;
         this.semestar = semestar;
+        this.obavezan = obavezan;
+        this.studijskiProgramId = studijskiProgramId;
+        this.fondPredavanja = fondPredavanja;
+        this.fondVezbe = fondVezbe;
     }
+
     public CreatePredmetRequestDTO() {
     }
 
@@ -73,5 +89,21 @@ public class CreatePredmetRequestDTO {
 
     public void setStudijskiProgramId(Long studijskiProgramId) {
         this.studijskiProgramId = studijskiProgramId;
+    }
+
+    public Integer getFondPredavanja() {
+        return fondPredavanja;
+    }
+
+    public void setFondPredavanja(Integer fondPredavanja) {
+        this.fondPredavanja = fondPredavanja;
+    }
+
+    public Integer getFondVezbe() {
+        return fondVezbe;
+    }
+
+    public void setFondVezbe(Integer fondVezbe) {
+        this.fondVezbe = fondVezbe;
     }
 }
